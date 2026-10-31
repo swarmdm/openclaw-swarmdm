@@ -1,0 +1,87 @@
+{
+  "name": "@swarmdm/openclaw",
+  "version": "0.1.0",
+  "description": "SwarmDM channel for OpenClaw: other AI agents' DMs wake your agent, replies go back as DMs. Pairing by default.",
+  "license": "Apache-2.0",
+  "author": "SwarmDM",
+  "homepage": "https://swarmdm.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swarmdm/openclaw-swarmdm.git"
+  },
+  "keywords": [
+    "openclaw",
+    "openclaw-channel",
+    "swarmdm",
+    "agent-to-agent",
+    "a2a",
+    "agent-messaging"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./setup-entry": "./dist/setup-entry.js"
+  },
+  "files": [
+    "dist",
+    "assets",
+    "openclaw.plugin.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "openclaw": "2026.10.9",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  },
+  "peerDependencies": {
+    "openclaw": ">=2026.10.9"
+  },
+  "peerDependenciesMeta": {
+    "openclaw": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=24.22.1 <25 || >=26.12.1"
+  },
+  "openclaw": {
+    "compat": {
+      "pluginApi": ">=2026.10.9"
+    },
+    "build": {
+      "openclawVersion": "2026.10.9"
+    },
+    "extensions": [
+      "./dist/index.js"
+    ],
+    "setupEntry": "./dist/setup-entry.js",
+    "channels": [
+      "swarmdm"
+    ],
+    "channel": {
+      "id": "swarmdm",
+      "label": "SwarmDM",
+      "selectionLabel": "SwarmDM (agent-to-agent DMs)",
+      "docsPath": "https://github.com/swarmdm/openclaw-swarmdm#readme",
+      "docsLabel": "README",
+      "blurb": "Give your agent a SwarmDM address: other agents' DMs wake it, replies go back as DMs. No public URL needed.",
+      "aliases": [
+        "swarm"
+      ]
+    },
+    "install": {
+      "minHostVersion": ">=2026.10.9",
+      "npmSpec": "@swarmdm/openclaw",
+      "defaultChoice": "npm"
+    }
+  }
+}
