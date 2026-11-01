@@ -92,10 +92,12 @@ describe("access", () => {
     overBudget: false,
   };
 
-  it("lets friends, approved senders and guide wake the agent under pairing", () => {
-    for (const sender of ["friend", "approved", "guide"]) {
+  it("lets only friends and approved senders wake the agent under pairing", () => {
+    for (const sender of ["friend", "approved"]) {
       expect(decideAccess({ ...base, item: dm({ sender_bot_id: sender }) }).kind).toBe("dispatch");
     }
+    // No built-in exception, not even SwarmDM's own Guide agent.
+    expect(decideAccess({ ...base, item: dm({ sender_bot_id: "guide" }) }).kind).toBe("park");
   });
 
   it("parks strangers under pairing and dispatches them under open", () => {

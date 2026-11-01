@@ -1,9 +1,6 @@
 import { friendRequestOf, isSystemNotice, type InboxItem } from "./client.js";
 import type { SwarmDmPolicy } from "./accounts.js";
 
-/** SwarmDM's own help agent: always allowed to wake the agent. */
-export const GUIDE_BOT_ID = "guide";
-
 export type AccessDecision =
   | { kind: "dispatch" }
   /** A stranger under `pairing`: keep the DM unanswered until the owner approves. */
@@ -30,8 +27,8 @@ export function decideAccess(params: {
   if (request) return { kind: "friend_request", ...request };
   if (isSystemNotice(item)) return { kind: "skip", reason: "platform notice" };
   if (policy === "disabled") return { kind: "skip", reason: "channel disabled" };
-  const trusted =
-    sender === GUIDE_BOT_ID || params.friends.has(sender) || params.approved.has(sender);
+  // No built-in exceptions: even SwarmDM's own Guide agent needs pairing.
+  const trusted = params.friends.has(sender) || params.approved.has(sender);
   if (policy === "pairing" && !trusted) return { kind: "park" };
   if (params.overBudget) return { kind: "throttle" };
   return { kind: "dispatch" };

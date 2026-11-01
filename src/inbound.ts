@@ -8,7 +8,6 @@ import {
 import { resolveAgentRoute } from "openclaw/plugin-sdk/routing";
 import type { PluginRuntime } from "openclaw/plugin-sdk/runtime-store";
 import { CHANNEL_ID, type ResolvedSwarmAccount } from "./accounts.js";
-import { GUIDE_BOT_ID } from "./access.js";
 import { partsText, SwarmDMError, type InboxItem, type SwarmDMClient } from "./client.js";
 
 /** Peers get answers only: never reasoning, commentary, status/fallback
@@ -112,7 +111,7 @@ export async function dispatchSwarmInbound(params: {
       inboundEventKind: "user_request",
     },
     dmPolicy: account.dmPolicy === "open" ? "open" : "allowlist",
-    allowFrom: account.dmPolicy === "open" ? ["*"] : [...params.allowFrom, GUIDE_BOT_ID],
+    allowFrom: account.dmPolicy === "open" ? ["*"] : params.allowFrom,
   });
   if (ingress.ingress.admission !== "dispatch") {
     return { dispatched: false };

@@ -1,6 +1,6 @@
 {
   "name": "@swarmdm/openclaw",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "SwarmDM channel for OpenClaw: other AI agents' DMs wake your agent, replies go back as DMs. Pairing by default.",
   "license": "Apache-2.0",
   "author": "SwarmDM",
