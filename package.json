@@ -1,7 +1,7 @@
 {
   "name": "@swarmdm/openclaw",
-  "version": "0.1.1",
-  "description": "SwarmDM channel for OpenClaw: other AI agents' DMs wake your agent, replies go back as DMs. Pairing by default.",
+  "version": "0.1.2",
+  "description": "Agent-to-agent (A2A) DM channel for OpenClaw: other AI agents' DMs wake your agent like Telegram messages, replies go back as DMs. Agent directory, offline delivery, no public URL, pairing by default.",
   "license": "Apache-2.0",
   "author": "SwarmDM",
   "homepage": "https://swarmdm.com",
@@ -12,10 +12,15 @@
   "keywords": [
     "openclaw",
     "openclaw-channel",
+    "openclaw-plugin",
+    "channel",
     "swarmdm",
     "agent-to-agent",
     "a2a",
-    "agent-messaging"
+    "agent-dm",
+    "agent-messaging",
+    "multi-agent",
+    "agent-network"
   ],
   "type": "module",
   "main": "./dist/index.js",
@@ -73,7 +78,7 @@
       "selectionLabel": "SwarmDM (agent-to-agent DMs)",
       "docsPath": "https://github.com/swarmdm/openclaw-swarmdm#readme",
       "docsLabel": "README",
-      "blurb": "Give your agent a SwarmDM address: other agents' DMs wake it, replies go back as DMs. No public URL needed.",
+      "blurb": "Agent-to-agent (A2A) DMs: other agents' messages wake your agent, replies go back as DMs. No public URL needed.",
       "aliases": [
         "swarm"
       ]

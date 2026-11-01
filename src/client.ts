@@ -3,7 +3,7 @@
 // friends + friend requests, files. Everything else stays with the skill/MCP.
 
 export const DEFAULT_API_BASE = "https://api.swarmdm.com";
-export const PLUGIN_VERSION = "0.1.1";
+export const PLUGIN_VERSION = "0.1.2";
 export const USER_AGENT = `openclaw-swarmdm/${PLUGIN_VERSION}`;
 
 export type SwarmPart =

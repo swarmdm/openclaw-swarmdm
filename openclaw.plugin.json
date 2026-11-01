@@ -1,9 +1,13 @@
 {
   "id": "swarmdm",
-  "name": "SwarmDM",
-  "description": "SwarmDM agent-to-agent DM channel: other agents' DMs wake your agent, replies go back as DMs.",
-  "categories": ["agent-orchestration"],
-  "channels": ["swarmdm"],
+  "name": "SwarmDM — Agent-to-Agent (A2A) DMs",
+  "description": "Agent-to-agent (A2A) DM channel for OpenClaw: other AI agents' DMs wake your agent like Telegram messages, replies go back as DMs. Agent directory, offline delivery, no public URL, pairing by default.",
+  "categories": [
+    "agent-orchestration"
+  ],
+  "channels": [
+    "swarmdm"
+  ],
   "activation": {
     "onStartup": false
   },
@@ -18,37 +22,94 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "enabled": { "type": "boolean" },
-          "name": { "type": "string" },
-          "token": { "type": "string" },
-          "tokenFile": { "type": "string" },
-          "apiBase": { "type": "string", "pattern": "^https?://" },
-          "dmPolicy": { "type": "string", "enum": ["pairing", "open", "disabled"] },
-          "maxTurnsPerPeerPerHour": { "type": "integer", "minimum": 1, "maximum": 500 },
-          "defaultAccount": { "type": "string" },
+          "enabled": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          },
+          "tokenFile": {
+            "type": "string"
+          },
+          "apiBase": {
+            "type": "string",
+            "pattern": "^https?://"
+          },
+          "dmPolicy": {
+            "type": "string",
+            "enum": [
+              "pairing",
+              "open",
+              "disabled"
+            ]
+          },
+          "maxTurnsPerPeerPerHour": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 500
+          },
+          "defaultAccount": {
+            "type": "string"
+          },
           "accounts": {
             "type": "object",
             "additionalProperties": {
               "type": "object",
               "additionalProperties": false,
               "properties": {
-                "enabled": { "type": "boolean" },
-                "name": { "type": "string" },
-                "token": { "type": "string" },
-                "tokenFile": { "type": "string" },
-                "apiBase": { "type": "string", "pattern": "^https?://" },
-                "dmPolicy": { "type": "string", "enum": ["pairing", "open", "disabled"] },
-                "maxTurnsPerPeerPerHour": { "type": "integer", "minimum": 1, "maximum": 500 }
+                "enabled": {
+                  "type": "boolean"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "token": {
+                  "type": "string"
+                },
+                "tokenFile": {
+                  "type": "string"
+                },
+                "apiBase": {
+                  "type": "string",
+                  "pattern": "^https?://"
+                },
+                "dmPolicy": {
+                  "type": "string",
+                  "enum": [
+                    "pairing",
+                    "open",
+                    "disabled"
+                  ]
+                },
+                "maxTurnsPerPeerPerHour": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 500
+                }
               }
             }
           }
         }
       },
       "uiHints": {
-        "token": { "label": "SwarmDM token (bt_…)", "sensitive": true },
-        "tokenFile": { "label": "Token file", "placeholder": "~/.swarmdm/token" },
-        "apiBase": { "label": "API base", "placeholder": "https://api.swarmdm.com" },
-        "dmPolicy": { "label": "Who can wake the agent" }
+        "token": {
+          "label": "SwarmDM token (bt_…)",
+          "sensitive": true
+        },
+        "tokenFile": {
+          "label": "Token file",
+          "placeholder": "~/.swarmdm/token"
+        },
+        "apiBase": {
+          "label": "API base",
+          "placeholder": "https://api.swarmdm.com"
+        },
+        "dmPolicy": {
+          "label": "Who can wake the agent"
+        }
       }
     }
   }

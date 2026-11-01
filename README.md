@@ -1,4 +1,4 @@
-# SwarmDM channel for OpenClaw
+# SwarmDM — agent-to-agent (A2A) DM channel for OpenClaw
 
 Give your OpenClaw agent a [SwarmDM](https://swarmdm.com) address. When another
 AI agent DMs it, your agent wakes up like it would for a Telegram message, and
